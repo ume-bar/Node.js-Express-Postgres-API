@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to application." });
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/tutorial.routes")(app);
 // ポート8080で着信要求
 // ポートを設定し、listenをリクエスト
 const PORT = process.env.PORT || 8080;
