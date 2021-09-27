@@ -9,20 +9,20 @@ const app = express();
 // ExpressはRESTAPIを構築するためのもの
 // corsは、さまざまなオプションでCORSを有効にするExpressミドルウェアを提供
 
-var corsOptions = {
-    origin: "http://localhost:8081"
-};
+// var corsOptions = {
+//     origin: "http://localhost:8081"
+// };
 // テストが簡単なGETルートを定義
 // Expressアプリを作成し、メソッドを使用body-parserしてcorsミドルウェアを
 // 追加しapp.use()ます。origin原点を設定していることに注意
 // ポート8080で着信要求をlisten
-app.use(cors(corsOptions));
+app.use(cors({ origin: true, corsOptions: true }));
 
 // コンテンツタイプのリクエストを解析 - application/json
 app.use(express.json());
 
 // コンテンツタイプのリクエストを解析 - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // // server.jsのsync()メソッドを呼び出すことを忘れないように
 const db = require("./app/models");
